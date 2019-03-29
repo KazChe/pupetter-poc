@@ -47,11 +47,21 @@ const BUTTON_SELECTOR = '#login > input.login--panel-form-button';
 
     await Promise.all([
         _frame.$eval('#tabReportsA', el => el.click())
-            // _frame.click('#tabReportsA')
     ]).catch(e => console.log(e));
 
-     // browser.close();
+    await Promise.all([
+        _frame.$eval('#BusRpts', el => el.click())
+    ]).catch(e => console.log(e));
+
+    //todo: must hook into the 'main' frame to click - add this logic
+    await Promise.all([
+        _frame.$eval('#rcbReportType_Input', el => el.click())
+    ]).catch(e => console.log(e));
+
+
+
+    // browser.close();
 }
 
-
+//#rcbReportType_Input
 run();
